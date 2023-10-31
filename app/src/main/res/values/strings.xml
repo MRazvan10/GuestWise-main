@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GuestWise</string>
+    <string name="welcome_to_guestwise">Welcome to GuestWise!</string>
 </resources>
