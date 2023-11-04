@@ -3,7 +3,6 @@ package com.main.guestwise.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -25,20 +24,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.main.guestwise.R
-import com.main.guestwise.models.LanguageModel
 import com.main.guestwise.ui.login.LoginScreen
 import com.main.guestwise.ui.theme.GuestWiseTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.selects.whileSelect
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -64,7 +59,7 @@ class MainActivity : ComponentActivity() {
 
 
     @Composable
-    fun Bar( viewModel: LanguageSelectViewModel= hiltViewModel()) {
+    fun Bar() {
 
         var expanded by remember { mutableStateOf(false) }
         val languages = listOf(
@@ -98,9 +93,9 @@ class MainActivity : ComponentActivity() {
                         DropdownMenuItem(onClick = {
                             selectedIndex = index
                             expanded = false
-                            mainActivityScope.launch {
-                                viewModel.changeLanguage(LanguageModel(id = s.first, lang = s.second.second))
-                            }
+//                            mainActivityScope.launch {
+//                                viewModel.changeLanguage(LanguageModel(id = s.first, lang = s.second.second))
+//                            }
                         }, text = {
                             Text(text = s.second.second)
                         })
