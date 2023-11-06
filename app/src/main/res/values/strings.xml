@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">GuestWise</string>
-    <string name="welcome_to_guestwise">Welcome to GuestWise!</string>
+
+    <string name="e_mail">E-mail</string>
+
+    <string name="password_en">Password</string>
+    <string name="password_ro">Parola</string>
+    <string name="password_fr">Mot de passe</string>
+    <string name="password_es">Contrasena</string>
+    <string name="password_pt">Senha</string>
+    <string name="password_de">Passwort</string>
+
+    <string name="login_en">Log in</string>
+    <string name="login_ro">Conectare</string>
+    <string name="login_fr">Se connecter</string>
+    <string name="login_es">Acceso</string>
+    <string name="login_pt">Conecte-se</string>
+    <string name="login_de">Anmelden</string>
 </resources>
