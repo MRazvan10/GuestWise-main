@@ -2,7 +2,7 @@ package com.main.guestwise.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.main.guestwise.model.Language
+import com.main.guestwise.models.Language
 import com.main.guestwise.repository.LanguageRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

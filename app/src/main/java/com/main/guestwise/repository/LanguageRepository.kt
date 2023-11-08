@@ -1,7 +1,7 @@
 package com.main.guestwise.repository
 
 import com.main.guestwise.data.LanguageDatabaseDao
-import com.main.guestwise.model.Language
+import com.main.guestwise.models.Language
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.conflate

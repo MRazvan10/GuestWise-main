@@ -1,4 +1,4 @@
-package com.main.guestwise.util
+package com.main.guestwise.utils
 
 import java.text.SimpleDateFormat
 import java.util.Date

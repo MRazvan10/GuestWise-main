@@ -1,4 +1,4 @@
-package com.main.guestwise.components
+package com.main.guestwise.ui.components
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -49,6 +49,37 @@ fun CustomInputText(
             keyboardController?.hide()
 
         }), modifier = modifier
+    )
+
+}
+
+@ExperimentalComposeUiApi
+@Composable
+fun EmailInputText(
+    modifier: Modifier = Modifier,
+    text: String,
+    label: String,
+    maxLine: Int = 1,
+    onTextChange: (String) -> Unit,
+    onImeAction: () -> Unit = {}
+) {
+    val keyboardController = LocalSoftwareKeyboardController.current
+
+    TextField(
+        value = text,
+        onValueChange = onTextChange,
+        colors = TextFieldDefaults.textFieldColors(
+            backgroundColor = Color.Transparent
+        ),
+        maxLines = maxLine,
+        label = { Text(text = label) },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+        keyboardActions = KeyboardActions(onDone = {
+            onImeAction()
+            keyboardController?.hide()
+
+        }),
+        modifier = modifier
     )
 
 }

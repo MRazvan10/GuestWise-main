@@ -16,4 +16,11 @@
     <string name="login_es">Acceso</string>
     <string name="login_pt">Conecte-se</string>
     <string name="login_de">Anmelden</string>
+
+    <string name="register_en">Create account</string>
+    <string name="register_ro">Creare cont</string>
+    <string name="register_fr">Creer un compte</string>
+    <string name="register_es">Crear una cuenta</string>
+    <string name="register_pt">Criar uma conta</string>
+    <string name="register_de">Benutzerkonto erstellen</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.main.guestwise.data
 
 import androidx.room.*
-import com.main.guestwise.model.Language
+import com.main.guestwise.models.Language
 import kotlinx.coroutines.flow.Flow
 
 @Dao
