@@ -10,6 +10,13 @@
     <string name="password_pt">Senha</string>
     <string name="password_de">Passwort</string>
 
+    <string name="repeat_password_en">Repeat password</string>
+    <string name="repeat_password_ro">Repetati parola</string>
+    <string name="repeat_password_fr">Repeter le mot de passe</string>
+    <string name="repeat_password_es">Repita la contrasena</string>
+    <string name="repeat_password_pt">Repita a senha</string>
+    <string name="repeat_password_de">Passwort wiederholen</string>
+
     <string name="login_en">Log in</string>
     <string name="login_ro">Conectare</string>
     <string name="login_fr">Se connecter</string>
@@ -23,4 +30,18 @@
     <string name="register_es">Crear una cuenta</string>
     <string name="register_pt">Criar uma conta</string>
     <string name="register_de">Benutzerkonto erstellen</string>
+
+    <string name="name_en">Name</string>
+    <string name="name_ro">Nume</string>
+    <string name="name_fr">Nom</string>
+    <string name="name_es">Nombre</string>
+    <string name="name_pt">Nome</string>
+    <string name="name_de">Name</string>
+
+    <string name="phone_en">Phone</string>
+    <string name="phone_ro">Telefon</string>
+    <string name="phone_fr">Telephone</string>
+    <string name="phone_es">Telefono</string>
+    <string name="phone_pt">Telefone</string>
+    <string name="phone_de">Telefon</string>
 </resources>

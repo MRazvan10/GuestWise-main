@@ -19,18 +19,29 @@ import com.google.firebase.auth.FirebaseAuth
 import com.main.guestwise.R
 import com.main.guestwise.models.Language
 import com.main.guestwise.ui.components.CustomButton
+import com.main.guestwise.ui.components.CustomInputText
 import com.main.guestwise.ui.components.EmailInputText
 import com.main.guestwise.ui.components.PasswordInputText
+import com.main.guestwise.ui.components.PhoneInputText
 
 @ExperimentalComposeUiApi
 @Composable
-fun LoginScreen(
+fun CreateAccountScreen(
     languageViewModel: LanguageViewModel, language: Language, auth: FirebaseAuth, navController: NavController
 ) {
     var email by remember {
         mutableStateOf("")
     }
     var password by remember {
+        mutableStateOf("")
+    }
+    var repeatPassword by remember {
+        mutableStateOf("")
+    }
+    var name by remember {
+        mutableStateOf("")
+    }
+    var phone by remember {
         mutableStateOf("")
     }
     Column {
@@ -59,23 +70,46 @@ fun LoginScreen(
                     password = it
                 })
 
-                CustomButton(text = when (language.code) {
-                    "en" -> stringResource(R.string.login_en)
-                    "ro" -> stringResource(R.string.login_ro)
-                    "fr" -> stringResource(R.string.login_fr)
-                    "es" -> stringResource(R.string.login_es)
-                    "pt" -> stringResource(R.string.login_pt)
-                    "de" -> stringResource(R.string.login_de)
-                    else -> ""
-                }, modifier = Modifier.padding(
+                PasswordInputText(modifier = Modifier.padding(
                     top = 8.dp, bottom = 8.dp
-                ), onClick = {
-                    if (email.isNotEmpty() && password.isNotEmpty()) {
-                        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener { navController.navigate("homePage") }
-                            .addOnFailureListener {
-                                //
-                            }
-                    }
+                ), text = repeatPassword, label = when (language.code) {
+                    "en" -> stringResource(R.string.repeat_password_en)
+                    "ro" -> stringResource(R.string.repeat_password_ro)
+                    "fr" -> stringResource(R.string.repeat_password_fr)
+                    "es" -> stringResource(R.string.repeat_password_es)
+                    "pt" -> stringResource(R.string.repeat_password_pt)
+                    "de" -> stringResource(R.string.repeat_password_de)
+                    else -> ""
+                }, onTextChange = {
+                    repeatPassword = it
+                })
+
+                CustomInputText(modifier = Modifier.padding(
+                    top = 8.dp, bottom = 8.dp
+                ), text = name, label = when (language.code) {
+                    "en" -> stringResource(R.string.name_en)
+                    "ro" -> stringResource(R.string.name_ro)
+                    "fr" -> stringResource(R.string.name_fr)
+                    "es" -> stringResource(R.string.name_es)
+                    "pt" -> stringResource(R.string.name_pt)
+                    "de" -> stringResource(R.string.name_de)
+                    else -> ""
+                }, onTextChange = {
+                    name = it
+                })
+
+                PhoneInputText(modifier = Modifier.padding(
+                    top = 8.dp, bottom = 8.dp
+                ), text = phone, label = when (language.code) {
+                    "en" -> stringResource(R.string.phone_en)
+                    "ro" -> stringResource(R.string.phone_ro)
+                    "fr" -> stringResource(R.string.phone_fr)
+                    "es" -> stringResource(R.string.phone_es)
+                    "pt" -> stringResource(R.string.phone_pt)
+                    "de" -> stringResource(R.string.phone_de)
+                    else -> ""
+                }, onTextChange = {
+                    phone = it
                 })
 
                 CustomButton(text = when (language.code) {
@@ -86,7 +120,15 @@ fun LoginScreen(
                     "pt" -> stringResource(R.string.register_pt)
                     "de" -> stringResource(R.string.register_de)
                     else -> ""
-                }, modifier = Modifier.padding(bottom = 8.dp), onClick = { navController.navigate("createAccount") })
+                }, modifier = Modifier.padding(
+                    top = 8.dp, bottom = 8.dp
+                ), onClick = {
+                    auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+                        navController.navigate("homePage")
+                    }.addOnFailureListener {
+                        //
+                    }
+                })
 
             }
             Divider(modifier = Modifier.padding(10.dp))

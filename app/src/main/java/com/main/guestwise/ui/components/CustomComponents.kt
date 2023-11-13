@@ -86,6 +86,37 @@ fun EmailInputText(
 
 @ExperimentalComposeUiApi
 @Composable
+fun PhoneInputText(
+    modifier: Modifier = Modifier,
+    text: String,
+    label: String,
+    maxLine: Int = 1,
+    onTextChange: (String) -> Unit,
+    onImeAction: () -> Unit = {}
+) {
+    val keyboardController = LocalSoftwareKeyboardController.current
+
+    TextField(
+        value = text,
+        onValueChange = onTextChange,
+        colors = TextFieldDefaults.textFieldColors(
+            backgroundColor = Color.Transparent
+        ),
+        maxLines = maxLine,
+        label = { Text(text = label) },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+        keyboardActions = KeyboardActions(onDone = {
+            onImeAction()
+            keyboardController?.hide()
+
+        }),
+        modifier = modifier
+    )
+
+}
+
+@ExperimentalComposeUiApi
+@Composable
 fun PasswordInputText(
     modifier: Modifier = Modifier,
     text: String,
